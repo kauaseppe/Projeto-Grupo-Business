@@ -38,8 +38,8 @@ Antes de começar, você precisa ter instalado:
 
 Clone o repositório e entre na pasta:
 (no cmd)
-"git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo"
+"git clone https://github.com/kauaseppe/Projeto-Grupo-Business.git
+cd Projeto-Grupo-Business"
 
 Instale as dependências:
 (no cmd)
