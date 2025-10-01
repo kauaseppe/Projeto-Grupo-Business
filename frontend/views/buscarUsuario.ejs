@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Usuários</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Lista de Usuários</h1>
+
+    <% if (erro) { %>
+      <p class="error"><%= erro %></p>
+    <% } %>
+
+    <% if (usuarios.length === 0) { %>
+      <p>Nenhum usuário encontrado.</p>
+    <% } else { %>
+      <ul>
+        <% usuarios.forEach(usuario => { %>
+          <li>
+            <div>
+              <strong><%= usuario.nome %></strong> - <%= usuario.email %>
+              | <a href="/detalhe/<%= usuario._id %>">detalhes</a>
+              | <a href="/editar/<%= usuario._id %>">editar</a>
+            </div>
+
+            <form action="/deletar/<%= usuario._id %>" method="POST" style="display:inline;">
+              <button type="submit" onclick="return confirm('Deseja excluir este usuário?')">
+                Excluir
+              </button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+
+    <br>
+    <a href="/">Voltar</a>
+  </div>
+</body>
+</html>

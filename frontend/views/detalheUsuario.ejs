@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detalhes do Usuário</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Detalhes do Usuário</h1>
+
+    <p><strong>Nome:</strong> <%= usuario.nome %></p>
+    <p><strong>Email:</strong> <%= usuario.email %></p>
+    <p><strong>Data de Criação:</strong> <%= new Date(usuario.data_criacao).toLocaleString() %></p>
+
+    <br>
+    <a href="/buscar">Voltar</a>
+  </div>
+</body>
+</html>
