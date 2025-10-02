@@ -11,15 +11,12 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// URL do backend
 const API_URL = "http://localhost:3000/api";
 
-// Página inicial
 app.get("/", (req, res) => {
   res.render("index");
 });
 
-// Criar usuário
 app.get("/criar", (req, res) => {
   res.render("criarUsuario", { erro: null });
 });
@@ -34,7 +31,6 @@ app.post("/criar", async (req, res) => {
   }
 });
 
-// Listar usuários
 app.get("/buscar", async (req, res) => {
   try {
     const { data: usuarios } = await axios.get(`${API_URL}/usuarios`);
@@ -44,7 +40,6 @@ app.get("/buscar", async (req, res) => {
   }
 });
 
-// Detalhes de usuário
 app.get("/detalhe/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -55,7 +50,6 @@ app.get("/detalhe/:id", async (req, res) => {
   }
 });
 
-// Editar usuário
 app.get("/editar/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -77,7 +71,6 @@ app.post("/editar/:id", async (req, res) => {
   }
 });
 
-// Excluir usuário
 app.post("/deletar/:id", async (req, res) => {
   try {
     const { id } = req.params;
